@@ -1,1 +1,316 @@
-my github page
+<!DOCTYPE html>
+<html lang="en" ng-app ng-controller="qaController">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ app.name }}</title>
+
+    <!-- Latest compiled and minified CSS -->
+<!--        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+<!--    <link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css">-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.1.1/darkly/bootstrap.min.css">
+   
+    <style type="text/css">
+       div.container th, td { text-align: center; }
+        .jumbotron {  
+            margin-top:6em;
+            background-color: #375a7f !important;
+            background: url('https://38.media.tumblr.com/c4866a2c1a33bdeaa8a3ec6b5d6bef1e/tumblr_n5e0701WqC1st5lhmo1_1280.jpg') no-repeat center center fixed !important; 
+            -webkit-background-size: cover !important;
+            -moz-background-size: cover !important;
+            -o-background-size: cover !important;
+            background-size: cover !important;
+
+/*
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://38.media.tumblr.com/c4866a2c1a33bdeaa8a3ec6b5d6bef1e/tumblr_n5e0701WqC1st5lhmo1_1280.jpg', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://38.media.tumblr.com/c4866a2c1a33bdeaa8a3ec6b5d6bef1e/tumblr_n5e0701WqC1st5lhmo1_1280.jpg', sizingMethod='scale')";
+*/
+            
+        }
+        div.container .text-overlay { 
+            background: #000; 
+            opacity: .5; 
+            filter: alpha(opacity=65);
+            padding: 1em; 
+            color: #; 
+            position: relative; 
+            bottom: -1em;
+            -ms-border-radius: 10px; 
+            -moz-border-radius: 10px; 
+            -webkit-border-radius: 10px; 
+            -o-border-radius: 10px; 
+            border-radius:10px;
+        }
+
+        nav div.container { text-align: center; padding-top: 1em;}
+        .modal-header button { color:#fff; }
+
+        .recommendations { padding: 1em; background: }
+        .recommendations h3 { text-align: center; color:#0ce3ac; }
+        .recommendations a { text-decoration: none; }
+
+        .disclaimer {text-align: center; color:#E9B7AB; }
+    </style>
+
+    <!-- Optional theme -->
+<!--        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+    
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>  
+</head>
+
+<body>
+   
+    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"> {{ app.name }}</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+<!--                    <li class="active"><a href="#">Home</a> </li>-->
+                    <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Recommendations</a> </li>
+                    <li><a href="#">Contact Experience Meaning</a> </li>
+                    <li><a href="#" data-toggle="modal" data-target=".bs-settings-modal-lg">Settings</a> </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+    
+    <!-- BOOTSTRAP RECOMMENDATION MODAL DIALOG BEGINS -->    
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content recommendations">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <h3 class="modal-title recommendatons" id="myModalLabel">Recommendations</h3>
+            </div>
+            <div class="modal-body">
+                <p>If you're like me then you could use a little help (or alot) when it comes to reading Arabic. Here's a couple ways to get started on this beautiful journey even if you haven't done it before. Use the recommendation that works best for you:</p>
+                <ol>
+                  <li>Use an app that can play the Qur'an line by line and simply read the English.</li>
+                  <li>Use an app that can play the Qur'an line by line with slower recitation and try to read the Arabic along with the reciter. Don't worry if you can't keep up perfectly. You should speed up with consistent practice.</li>
+                  <li>Use an app that can play the Qur'an line by line so you can learn or verify Arabic pronounciation.</li>
+                  <li>Simply read with a group.</li>
+                  <li>Remember a small consistent effort with progress is better than a large effort that simply drops off.</li>
+                </ol>
+              
+                  There's plenty of Qur'an apps & sites out there. Here are just a few app suggestions:
+                <ol>
+                  <li><a href="https://itunes.apple.com/us/app/quran-majeed/id366111277?mt=8" target="_blank">Qur'an Majeed</a> for iPhone/iPad/Mac </li>
+                  <li><a href="quranplayer.me" target="_blank"> Qur'an Player</a> for Desktops</li>
+                  <li><a href="https://play.google.com/store/apps/details?id=com.quran.labs.androidquran" target="_blank"> Qur'an Android</a> for Android </li>
+                </ol>
+          </div>
+          <div class="modal-footer">
+            <div class="disclaimer">
+                <small>
+                  I am <strong><em>not</em></strong> affiliated with any of the app makers listed above.
+                </small>
+                <br><br>
+                <p>
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                </p>
+            </div>
+
+            
+<!--            <button type="button" class="btn btn-primary btn-sm">Save changes</button>-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- BOOTSTRAP MODAL DIALOG ENDS -->
+
+    
+    <!-- BOOTSTRAP SETTINGS MODAL DIALOG BEGINS -->    
+    <div class="modal fade bs-settings-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content recommendations">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <h3 class="modal-title recommendatons" id="settingsLabel">Settings</h3>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Clear all Qur'an recitation / meditiation. &nbsp; 
+                    <button type="button" class="btn btn-danger btn-sm btn-xs pull-right" ng-click="startOver();" data-dismiss="modal">Start Over</button>
+                </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+<!--            <button type="button" class="btn btn-primary btn-sm">Save changes</button>-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- BOOTSTRAP MODAL SETTINGS DIALOG ENDS -->   
+    
+      
+
+    <div class="container">
+
+        <!-- Main component for a primary marketing message or call to action -->
+        <div class="jumbotron" >
+           <div class="text-overlay">
+                <h1>{{ app.name }}</h1>
+                <p>The reality of love is that it grows with time. Love not only grows but manifests its most unseen treasures  over time and effort. Like the pearls of the ocean, the diamonds deep within the earth, and the gold hidden in minds, the jewels of the Qur’an are only truly dis-covered and/or un-covered when we begin to strive on the path of love with the Qur’an.</p>
+           </div>
+           <br>
+            <p>
+                <a class="btn btn-lg btn-primary btn-sm" style="position:relative; top:-7px;" href="../../components/#navbar" role="button" data-toggle="modal" data-target=".bs-example-modal-lg">Recommendations</a>
+<!--                <a class="btn btn-lg btn-info" href="../../components/#navbar" role="button" data-toggle="modal" data-target=".bs-example-modal-lg">Like this, Share it</a>-->
+              
+                <a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="large" data-count="horizontal">Tweet</a>
+               
+            </p>
+        </div>
+
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Complete Qur'an Recitation & Meditation in a month
+               <hr>
+                <!-- Table -->
+                <table class="table tabled-striped table-bordered">
+                    <thead>
+                        <tr class="warning">
+                            <th>#</th>
+                            <th>Surah</th>
+                            <th>Pages</th>
+                            <th>Qur'an</th>
+                            <th>Meditation</th>
+<!--
+                            <th>Search &nbsp;
+                                <input type="search" ng-model="q" placeholder="filter ..." />
+                            </th>
+-->
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="fast in ramadan | filter:q" ng-class="{success: fast.hasMeditated || fast.hasReadQuran}">
+                        <td >{{ fast.day }}</td>
+                        <td>{{ fast.surah }}</td>
+                        <td>{{ fast.pages }}</td>
+                        <td ng-class="{success: fast.hasReadQuran}">
+                            <input type="checkbox" ng-model="fast.hasReadQuran" ng-change="updateLocalStorage()">
+                        </td>
+                        <td ng-class="{info: fast.hasMeditated}">
+                            <input type="checkbox" ng-model="fast.hasMeditated" ng-change="updateLocalStorage()">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>  
+    
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+      <div class="container">
+         Based on the original <a href="http://experiencemeaning.org/#!/products-3/" target="_blank"> Qur'an Aid </a> 
+         built by <a href="http://experiencemeaning.org/" target="_blank">Experience Meaning</a>
+      </div>
+    </nav>
+
+    <script type="text/javascript">
+        function qaController($scope) {
+            $scope.app = { name: "Qur'an Aid" };
+            
+            // set & store db version
+            var dbVersion = localStorage.dbVersion;
+            if (angular.isUndefined(dbVersion)) {
+                localStorage.dbVersion = "1.0";
+                dbVersion = localStorage.dbVersion;
+            }
+            
+            // handle different db version (in case of schema changes after initial deployment so users dont' lose past data).
+            // TODO: Add data migration if necessary here.
+            
+            // check if localstorage has data, if not load it.
+            var defaultRecitationDb = JSON.stringify([
+                {day:1, surah:'1:1 - 2:141', pages:'1-16', hasReadQuran:false, hasMeditated:false},
+                {day:2, surah:'1:1 - 2:141', pages:'16-27', hasReadQuran:false, hasMeditated:false},
+                {day:3, surah:'1:1 - 2:141', pages:'27-41', hasReadQuran:false, hasMeditated:false},
+                {day:4, surah:'1:1 - 2:141', pages:'41-53', hasReadQuran:false, hasMeditated:false},
+                {day:5, surah:'1:1 - 2:141', pages:'53-64', hasReadQuran:false, hasMeditated:false},
+                {day:6, surah:'1:1 - 2:141', pages:'64-76', hasReadQuran:false, hasMeditated:false},
+                {day:7, surah:'1:1 - 2:141', pages:'76-88', hasReadQuran:false, hasMeditated:false},
+                {day:8, surah:'1:1 - 2:141', pages:'88-100', hasReadQuran:false, hasMeditated:false},
+                {day:9, surah:'1:1 - 2:141', pages:'100-112', hasReadQuran:false, hasMeditated:false},
+                {day:10, surah:'1:1 - 2:141', pages:'112-124', hasReadQuran:false, hasMeditated:false},
+                {day:11, surah:'1:1 - 2:141', pages:'124-136', hasReadQuran:false, hasMeditated:false},
+                {day:12, surah:'1:1 - 2:141', pages:'136-148', hasReadQuran:false, hasMeditated:false},
+                {day:13, surah:'1:1 - 2:141', pages:'148-161', hasReadQuran:false, hasMeditated:false},
+                {day:14, surah:'1:1 - 2:141', pages:'161-174', hasReadQuran:false, hasMeditated:false},
+                {day:15, surah:'1:1 - 2:141', pages:'174-188', hasReadQuran:false, hasMeditated:false},
+                {day:16, surah:'1:1 - 2:141', pages:'188-202', hasReadQuran:false, hasMeditated:false},
+                {day:17, surah:'1:1 - 2:141', pages:'202-214', hasReadQuran:false, hasMeditated:false},
+                {day:18, surah:'1:1 - 2:141', pages:'214-228', hasReadQuran:false, hasMeditated:false},
+                {day:19, surah:'1:1 - 2:141', pages:'228-242', hasReadQuran:false, hasMeditated:false},
+                {day:20, surah:'1:1 - 2:141', pages:'242-255', hasReadQuran:false, hasMeditated:false},
+                {day:21, surah:'1:1 - 2:141', pages:'255-268', hasReadQuran:false, hasMeditated:false},
+                {day:22, surah:'1:1 - 2:141', pages:'268-282', hasReadQuran:false, hasMeditated:false},
+                {day:23, surah:'1:1 - 2:141', pages:'282-297', hasReadQuran:false, hasMeditated:false},
+                {day:24, surah:'1:1 - 2:141', pages:'297-310', hasReadQuran:false, hasMeditated:false},
+                {day:25, surah:'1:1 - 2:141', pages:'310-326', hasReadQuran:false, hasMeditated:false},
+                {day:26, surah:'1:1 - 2:141', pages:'326-344', hasReadQuran:false, hasMeditated:false},
+                {day:27, surah:'1:1 - 2:141', pages:'344-361', hasReadQuran:false, hasMeditated:false},
+                {day:28, surah:'1:1 - 2:141', pages:'361-381', hasReadQuran:false, hasMeditated:false},
+                {day:29, surah:'1:1 - 2:141', pages:'381-404', hasReadQuran:false, hasMeditated:false},
+                {day:30, surah:'1:1 - 2:141', pages:'404-446', hasReadQuran:false, hasMeditated:false}  
+            ]); 
+            
+            var lsRamadan = localStorage.ramadan;
+            if (angular.isUndefined(lsRamadan)) {
+                // store data in localStorage
+                localStorage.ramadan = defaultRecitationDb;
+            }
+
+            // parse json data from localstorage and populate table
+            lsRamadan = JSON.parse(localStorage.ramadan);
+            $scope.ramadan = lsRamadan;
+
+            // update local storage whenever Qur'an has been read, or meditation on verses performed
+            $scope.updateLocalStorage = function () {
+                //console.log('all data including updates.', $scope.ramadan);
+
+                // actually update local storage
+                localStorage.ramadan = JSON.stringify($scope.ramadan);
+            };
+            
+            // start over recitation / meditation for another round.
+            $scope.startOver = function() {
+                localStorage.ramadan = defaultRecitationDb;
+                $scope.ramadan = defaultRecitationDb;
+                
+                // not sure why scope is dynamically refreshing but I'll just put this here for now since it works.
+                // TODO: fix this so no refresh is necessary. Perhaps just needs to be in the scope watch function.
+                document.location.reload();
+            };
+        }
+    </script>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
