@@ -8,8 +8,8 @@
     <title>{{ app.name }}</title>
 
     <!-- Latest compiled and minified CSS -->
-<!--        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
-<!--    <link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css">-->
+<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+<!-- <link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css">-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/darkly/bootstrap.min.css">
    
     <style type="text/css">
@@ -21,14 +21,14 @@
             -webkit-background-size: cover !important;
             -moz-background-size: cover !important;
             -o-background-size: cover !important;
-            background-size: cover !important;
-
-/*
-            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://38.media.tumblr.com/c4866a2c1a33bdeaa8a3ec6b5d6bef1e/tumblr_n5e0701WqC1st5lhmo1_1280.jpg', sizingMethod='scale');
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://38.media.tumblr.com/c4866a2c1a33bdeaa8a3ec6b5d6bef1e/tumblr_n5e0701WqC1st5lhmo1_1280.jpg', sizingMethod='scale')";
-*/
+            background-size: cover !important;   
+            height:100%;
+            width:100%;
             
+            padding:1em;
         }
+        .jumbotron p { font-size: 1.3em; !important; }  
+        
         div.container .text-overlay { 
             background: #000; 
             opacity: .5; 
@@ -52,10 +52,14 @@
         .recommendations a { text-decoration: none; }
 
         .disclaimer {text-align: center; color:#E9B7AB; }
+        
+        /*Simplistic override so that it fits "well-enough" on iPhones */
+        body { font-size: 1.15em !important; }
+            
     </style>
 
     <!-- Optional theme -->
-<!--        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
+<!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,8 +71,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
-    
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>  
 </head>
 
 <body>
@@ -89,7 +91,7 @@
                 <ul class="nav navbar-nav">
 <!--                    <li class="active"><a href="#">Home</a> </li>-->
                     <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Recommendations</a> </li>
-                    <li><a href="#">Contact Experience Meaning</a> </li>
+                    <li><a href="mailto:experiencemeaning2012@gmail.com">Contact Experience Meaning</a> </li>
                     <li><a href="#" data-toggle="modal" data-target=".bs-settings-modal-lg">Settings</a> </li>
                 </ul>
             </div>
@@ -108,7 +110,7 @@
                 <h3 class="modal-title recommendatons" id="myModalLabel">Recommendations</h3>
             </div>
             <div class="modal-body">
-                <p>If you're like me then you could use a little help (or alot) when it comes to reading Arabic. Here's a couple ways to get started on this beautiful journey even if you haven't done it before. Use the recommendation that works best for you:</p>
+                <p>If you're like me then you could use a little help (or a lot) when it comes to reading Arabic. Here's a couple ways to get started on this beautiful journey even if you haven't done it before. Use the recommendation that works best for you:</p>
                 <ol>
                   <li>Use an app that can play the Qur'an line by line and simply read the English.</li>
                   <li>Use an app that can play the Qur'an line by line with slower recitation and try to read the Arabic along with the reciter. Don't worry if you can't keep up perfectly. You should speed up with consistent practice.</li>
@@ -134,9 +136,6 @@
                     <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
                 </p>
             </div>
-
-            
-<!--            <button type="button" class="btn btn-primary btn-sm">Save changes</button>-->
           </div>
         </div>
       </div>
@@ -156,33 +155,30 @@
             </div>
             <div class="modal-body">
                 <p>
-                    Clear all Qur'an recitation / meditiation. &nbsp; 
+                    Clear all Qur'an recitation. &nbsp; 
                     <button type="button" class="btn btn-danger btn-sm btn-xs pull-right" ng-click="startOver();" data-dismiss="modal">Start Over</button>
                 </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
-<!--            <button type="button" class="btn btn-primary btn-sm">Save changes</button>-->
           </div>
         </div>
       </div>
     </div>
     <!-- BOOTSTRAP MODAL SETTINGS DIALOG ENDS -->   
     
-      
-
     <div class="container">
 
         <!-- Main component for a primary marketing message or call to action -->
         <div class="jumbotron" >
            <div class="text-overlay">
                 <h1>{{ app.name }}</h1>
-                <p>The reality of love is that it grows with time. Love not only grows but manifests its most unseen treasures  over time and effort. Like the pearls of the ocean, the diamonds deep within the earth, and the gold hidden in minds, the jewels of the Qur’an are only truly dis-covered and/or un-covered when we begin to strive on the path of love with the Qur’an.</p>
+                <p>The reality of love is that it grows with time. Love not only grows but manifests its most unseen treasures over time and effort. So plant the seeds and give light to each day by reading, reciting and reflecting on God's words.</p>
+      <p>When you're completed recitation of the Qur'an feel free to go into Settings and 'start over'. To bring new light to life everyday.</p>
            </div>
            <br>
-            <p>
-                <a class="btn btn-lg btn-primary btn-sm" style="position:relative; top:-7px;" href="../../components/#navbar" role="button" data-toggle="modal" data-target=".bs-example-modal-lg">Recommendations</a>
-<!--                <a class="btn btn-lg btn-info" href="../../components/#navbar" role="button" data-toggle="modal" data-target=".bs-example-modal-lg">Like this, Share it</a>-->
+            <p style="margin-top:5px;">
+                <a class="btn btn-lg btn-primary btn-sm" style="position:relative; top:-10px;" href="../../components/#navbar" role="button" data-toggle="modal" data-target=".bs-example-modal-lg">Recommendations</a>
               
                 <a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="large" data-count="horizontal">Tweet</a>
                
@@ -191,8 +187,8 @@
 
         <div class="panel panel-default">
             <!-- Default panel contents -->
-            <div class="panel-heading">Complete Qur'an Recitation & Meditation in a month
-               <hr>
+            <div class="panel-heading">
+              <p>Complete Qur'an recitation & meditation in a month</p>
                 <!-- Table -->
                 <table class="table tabled-striped table-bordered">
                     <thead>
@@ -202,11 +198,6 @@
                             <th>Pages</th>
                             <th>Qur'an</th>
                             <th>Meditation</th>
-<!--
-                            <th>Search &nbsp;
-                                <input type="search" ng-model="q" placeholder="filter ..." />
-                            </th>
--->
                         </tr>
                     </thead>
                     <tr ng-repeat="fast in ramadan | filter:q" ng-class="{success: fast.hasMeditated || fast.hasReadQuran}">
@@ -269,7 +260,7 @@
                 {day:19, surah:'25:21 - 27:55', pages:'228-242', hasReadQuran:false, hasMeditated:false},
                 {day:20, surah:'27:56 - 29:45', pages:'242-255', hasReadQuran:false, hasMeditated:false},
                 {day:21, surah:'29:46 - 33:30', pages:'255-268', hasReadQuran:false, hasMeditated:false},
-                {day:22, surah:'33:30 - 36:27', pages:'268-282', hasReadQuran:false, hasMeditated:false},
+                {day:22, surah:'33:31 - 36:27', pages:'268-282', hasReadQuran:false, hasMeditated:false},
                 {day:23, surah:'36:28 - 39:32', pages:'282-297', hasReadQuran:false, hasMeditated:false},
                 {day:24, surah:'39:33 - 41:46', pages:'297-310', hasReadQuran:false, hasMeditated:false},
                 {day:25, surah:'41:47 - 45:32', pages:'310-326', hasReadQuran:false, hasMeditated:false},
@@ -309,8 +300,9 @@
             };
         }
     </script>
-
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>    
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>  
+    
 </body>
 
 </html>
