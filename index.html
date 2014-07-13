@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" ng-app ng-controller="qaController">
-
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -8,55 +7,8 @@
     <title>{{ app.name }}</title>
 
     <!-- Latest compiled and minified CSS -->
-<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
-<!-- <link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css">-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/darkly/bootstrap.min.css">
-   
-    <style type="text/css">
-       div.container th, td { text-align: center; }
-        .jumbotron {  
-            margin-top:6em;
-            background-color: #375a7f !important;
-            background: url('https://38.media.tumblr.com/c4866a2c1a33bdeaa8a3ec6b5d6bef1e/tumblr_n5e0701WqC1st5lhmo1_1280.jpg') no-repeat center center fixed !important; 
-            -webkit-background-size: cover !important;
-            -moz-background-size: cover !important;
-            -o-background-size: cover !important;
-            background-size: cover !important;   
-            height:100%;
-            width:100%;
-            
-            padding:1em;
-        }
-        .jumbotron p { font-size: 1.3em; !important; }  
-        
-        div.container .text-overlay { 
-            background: #000; 
-            opacity: .5; 
-            filter: alpha(opacity=65);
-            padding: 1em; 
-            color: #; 
-            position: relative; 
-            bottom: -1em;
-            -ms-border-radius: 10px; 
-            -moz-border-radius: 10px; 
-            -webkit-border-radius: 10px; 
-            -o-border-radius: 10px; 
-            border-radius:10px;
-        }
-
-        nav div.container { text-align: center; padding-top: 1em; padding-left: 5px; padding-right:5px; }
-        .modal-header button { color:#fff; }
-
-        .recommendations { padding: 1em; background: }
-        .recommendations h3 { text-align: center; color:#0ce3ac; }
-        .recommendations a { text-decoration: none; }
-
-        .disclaimer {text-align: center; color:#E9B7AB; }
-        
-        /*Simplistic override so that it fits "well-enough" on iPhones */
-        body { font-size: 1.15em !important; }
-            
-    </style>
+    <link rel="stylesheet" href="css/style.min.css">
 
     <!-- Optional theme -->
 <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
@@ -68,8 +20,10 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Angular JS -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
 
     <!-- Google Analytics -->
@@ -78,11 +32,9 @@
         _gaq.push(['_setAccount', 'UA-52735235-1']);
         _gaq.push(['_trackPageview']);
         (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-
-        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
     </script>
 </head>
@@ -181,8 +133,6 @@
     <!-- BOOTSTRAP MODAL SETTINGS DIALOG ENDS -->   
     
     <div class="container">
-
-        <!-- Main component for a primary marketing message or call to action -->
         <div class="jumbotron" >
            <div class="text-overlay">
                 <h1>{{ app.name }}</h1>
@@ -198,6 +148,7 @@
             </p>
         </div>
 
+        <!-- Recitation Grid -->
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">
@@ -229,6 +180,7 @@
         </div>
     </div>  
     
+    <!-- Footer -->
     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
       <div class="container">
          Based on the original <a href="http://experiencemeaning.org/#!/products-3/" target="_blank"> Qur'an Aid </a> 
@@ -236,90 +188,16 @@
       </div>
     </nav>
 
-<!--    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.4/waypoints.min.js"></script>-->
-<!--    <script type="text/javascript" src="bower_components/jquery-waypoints/waypoints.min.js"></script>-->
+    <!-- Angular analytics directive -->
     <script type="text/javascript" src="bower_components/angulartics/dist/angulartics.min.js"></script>
-    <script type="text/javascript">
-        // Addign Google Analytics
-        angular.module('myApp', ['angulartics', 'angulartics.google.analytics'])
 
-        function qaController($scope) {
-            $scope.app = { name: "Qur'an Aid" };
-            
-            // set & store db version
-            var dbVersion = localStorage.dbVersion;
-            if (angular.isUndefined(dbVersion)) {
-                localStorage.dbVersion = "1.0";
-                dbVersion = localStorage.dbVersion;
-            }
-            
-            // handle different db version (in case of schema changes after initial deployment so users dont' lose past data).
-            // TODO: Add data migration if necessary here.
-            
-            // check if localstorage has data, if not load it.
-            var defaultRecitationDb = JSON.stringify([
-                {day:1, surah:'1:1 - 2:141', pages:'1-16', hasReadQuran:false, hasMeditated:false},
-                {day:2, surah:'2:142 - 2:252', pages:'16-27', hasReadQuran:false, hasMeditated:false},
-                {day:3, surah:'2:253 - 3:91', pages:'27-41', hasReadQuran:false, hasMeditated:false},
-                {day:4, surah:'3:92 - 4:23', pages:'41-53', hasReadQuran:false, hasMeditated:false},
-                {day:5, surah:'4:24 - 4:147', pages:'53-64', hasReadQuran:false, hasMeditated:false},
-                {day:6, surah:'4:148 - 5:82', pages:'64-76', hasReadQuran:false, hasMeditated:false},
-                {day:7, surah:'5:83 - 6:110', pages:'76-88', hasReadQuran:false, hasMeditated:false},
-                {day:8, surah:'6:111 - 7:87', pages:'88-100', hasReadQuran:false, hasMeditated:false},
-                {day:9, surah:'7:88 - 8:40', pages:'100-112', hasReadQuran:false, hasMeditated:false},
-                {day:10, surah:'8:41 - 9:93', pages:'112-124', hasReadQuran:false, hasMeditated:false},
-                {day:11, surah:'9:94 - 11:5', pages:'124-136', hasReadQuran:false, hasMeditated:false},
-                {day:12, surah:'11:6 - 12:52', pages:'136-148', hasReadQuran:false, hasMeditated:false},
-                {day:13, surah:'12:53 - 14:52', pages:'148-161', hasReadQuran:false, hasMeditated:false},
-                {day:14, surah:'15:1 - 16:128', pages:'161-174', hasReadQuran:false, hasMeditated:false},
-                {day:15, surah:'17:1 - 18:74', pages:'174-188', hasReadQuran:false, hasMeditated:false},
-                {day:16, surah:'18:75 - 20:135', pages:'188-202', hasReadQuran:false, hasMeditated:false},
-                {day:17, surah:'21:1 - 22:78', pages:'202-214', hasReadQuran:false, hasMeditated:false},
-                {day:18, surah:'23:1 - 25:20', pages:'214-228', hasReadQuran:false, hasMeditated:false},
-                {day:19, surah:'25:21 - 27:55', pages:'228-242', hasReadQuran:false, hasMeditated:false},
-                {day:20, surah:'27:56 - 29:45', pages:'242-255', hasReadQuran:false, hasMeditated:false},
-                {day:21, surah:'29:46 - 33:30', pages:'255-268', hasReadQuran:false, hasMeditated:false},
-                {day:22, surah:'33:31 - 36:27', pages:'268-282', hasReadQuran:false, hasMeditated:false},
-                {day:23, surah:'36:28 - 39:32', pages:'282-297', hasReadQuran:false, hasMeditated:false},
-                {day:24, surah:'39:33 - 41:46', pages:'297-310', hasReadQuran:false, hasMeditated:false},
-                {day:25, surah:'41:47 - 45:32', pages:'310-326', hasReadQuran:false, hasMeditated:false},
-                {day:26, surah:'45:33 - 51:30', pages:'326-344', hasReadQuran:false, hasMeditated:false},
-                {day:27, surah:'51:31 - 57:29', pages:'344-361', hasReadQuran:false, hasMeditated:false},
-                {day:28, surah:'58:1 - 66:12', pages:'361-381', hasReadQuran:false, hasMeditated:false},
-                {day:29, surah:'67:1 - 77:50', pages:'381-404', hasReadQuran:false, hasMeditated:false},
-                {day:30, surah:'78:1 - 114.6', pages:'404-446', hasReadQuran:false, hasMeditated:false}  
-            ]); 
-            
-            var lsRamadan = localStorage.ramadan;
-            if (angular.isUndefined(lsRamadan)) {
-                // store data in localStorage
-                localStorage.ramadan = defaultRecitationDb;
-            }
+    <!-- App controllers, config, etc -->
+    <script type="text/javascript" src="js/app.min.js"> </script>
 
-            // parse json data from localstorage and populate table
-            lsRamadan = JSON.parse(localStorage.ramadan);
-            $scope.ramadan = lsRamadan;
-
-            // update local storage whenever Qur'an has been read, or meditation on verses performed
-            $scope.updateLocalStorage = function () {
-                //console.log('all data including updates.', $scope.ramadan);
-
-                // actually update local storage
-                localStorage.ramadan = JSON.stringify($scope.ramadan);
-            };
-            
-            // start over recitation / meditation for another round.
-            $scope.startOver = function() {
-                localStorage.ramadan = defaultRecitationDb;
-                $scope.ramadan = defaultRecitationDb;
-                
-                // not sure why scope is dynamically refreshing but I'll just put this here for now since it works.
-                // TODO: fix this so no refresh is necessary. Perhaps just needs to be in the scope watch function.
-                document.location.reload();
-            };
-        }
-    </script>
+    <!-- Bootstrap js -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- Twitter -->
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>  
     
 </body>

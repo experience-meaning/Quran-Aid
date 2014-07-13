@@ -1,0 +1,42 @@
+div.container th, td { text-align: center; }
+.jumbotron {
+    margin-top:6em;
+    background-color: #375a7f !important;
+    background: url('https://38.media.tumblr.com/c4866a2c1a33bdeaa8a3ec6b5d6bef1e/tumblr_n5e0701WqC1st5lhmo1_1280.jpg') no-repeat center center fixed !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;
+    height:100%;
+    width:100%;
+
+    padding:1em;
+}
+.jumbotron p { font-size: 1.3em; !important; }
+
+div.container .text-overlay {
+    background: #000;
+    opacity: .5;
+    filter: alpha(opacity=65);
+    padding: 1em;
+    color: #;
+    position: relative;
+    bottom: -1em;
+    -ms-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius:10px;
+}
+
+nav div.container { text-align: center; padding-top: 1em; padding-left: 5px; padding-right:5px; }
+.modal-header button { color:#fff; }
+
+.recommendations { padding: 1em; background: }
+.recommendations h3 { text-align: center; color:#0ce3ac; }
+.recommendations a { text-decoration: none; }
+
+.disclaimer {text-align: center; color:#E9B7AB; }
+
+/*Simplistic override so that it fits "well-enough" on iPhones */
+body { font-size: 1.15em !important; }
