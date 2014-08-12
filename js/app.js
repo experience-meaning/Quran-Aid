@@ -1,5 +1,5 @@
 // Addign Google Analytics
-angular.module('myApp', ['angulartics', 'angulartics.google.analytics']);
+//angular.module('myApp', ['angulartics', 'angulartics.google.analytics']);
 
 function qaController($scope) {
     'use strict';
